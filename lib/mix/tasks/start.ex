@@ -1,8 +1,7 @@
 defmodule Mix.Tasks.Start do
   use Mix.Task
 
-  def run(params) do
-    IO.puts("Hello there")
-    IO.inspect(params)
+  def run(_) do
+    DungeonCrawl.CLI.Main.start_game()
   end
 end
