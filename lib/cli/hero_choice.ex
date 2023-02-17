@@ -8,7 +8,6 @@ defmodule DungeonCrawl.CLI.HeroChoice do
     heroes = DungeonCrawl.Heroes.all()
 
     heroes
-    |> Enum.map(fn hero -> hero.name end)
     |> display_options
     |> generate_question
     |> prompt

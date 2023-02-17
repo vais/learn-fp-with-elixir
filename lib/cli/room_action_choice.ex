@@ -7,7 +7,6 @@ defmodule DungeonCrawl.CLI.RoomActionChoice do
 
     action =
       room.actions
-      |> Enum.map(fn action -> action.label end)
       |> display_options
       |> generate_question
       |> prompt
