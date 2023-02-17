@@ -10,7 +10,7 @@ defmodule DungeonCrawl.CLI.BaseCommands do
     options
     |> Enum.with_index(1)
     |> Enum.each(fn {option, index} ->
-      info("#{index} - #{DungeonCrawl.Display.info(option)}")
+      info("#{index} - #{option}")
     end)
 
     options
