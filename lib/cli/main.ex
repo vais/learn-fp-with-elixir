@@ -3,9 +3,9 @@ defmodule DungeonCrawl.CLI.Main do
 
   def start_game do
     welcome_message()
+
     hero_choice()
-    clear()
-    crawl(DungeonCrawl.Room.all())
+    |> crawl(DungeonCrawl.Room.all())
   end
 
   defp welcome_message do
@@ -21,13 +21,27 @@ defmodule DungeonCrawl.CLI.Main do
     DungeonCrawl.CLI.HeroChoice.start()
   end
 
-  defp crawl(rooms) do
-    info("You're ready to move forward to the next room.")
+  defp crawl(hero, rooms) do
+    info("You keep moving forward to the next room.")
     prompt("Press Enter to continue...")
+    clear()
 
     rooms
     |> Enum.random()
     |> DungeonCrawl.CLI.RoomActionChoice.start()
-    |> IO.inspect()
+    |> trigger_action(hero)
+    |> handle_action_result
+  end
+
+  defp trigger_action({room, action}, hero) do
+    room.trigger.run(hero, action)
+  end
+
+  defp handle_action_result({_hero, :exit}) do
+    info("You've found the exit. You've won the game!")
+  end
+
+  defp handle_action_result({hero, _action}) do
+    crawl(hero, DungeonCrawl.Room.all())
   end
 end

@@ -25,7 +25,6 @@ defmodule DungeonCrawl.CLI.HeroChoice do
   defp confirm_hero(nil), do: start()
 
   defp confirm_hero(hero) do
-    clear()
     info("You have chosen #{hero.name}. #{hero.description}")
 
     if yes?("Confirm?") do

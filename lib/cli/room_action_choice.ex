@@ -2,7 +2,6 @@ defmodule DungeonCrawl.CLI.RoomActionChoice do
   import DungeonCrawl.CLI.BaseCommands
 
   def start(%DungeonCrawl.Room{} = room) do
-    clear()
     info(room.description)
 
     action =
@@ -16,6 +15,7 @@ defmodule DungeonCrawl.CLI.RoomActionChoice do
     if action do
       {room, action}
     else
+      clear()
       start(room)
     end
   end
