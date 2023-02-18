@@ -1,9 +1,9 @@
 defmodule DungeonCrawl.Room do
+  defstruct description: nil,
+            actions: []
+
   alias DungeonCrawl.Room
-
-  import DungeonCrawl.Room.Action
-
-  defstruct description: nil, actions: []
+  import Room.Action
 
   def all do
     [

@@ -1,5 +1,6 @@
 defmodule DungeonCrawl.Room.Action do
-  defstruct id: nil, label: nil
+  defstruct id: nil,
+            label: nil
 
   alias DungeonCrawl.Room.Action
 
