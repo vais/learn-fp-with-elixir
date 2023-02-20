@@ -15,7 +15,6 @@ defmodule DungeonCrawl.CLI.RoomActionChoice do
     if action do
       {room, action}
     else
-      clear()
       start(room)
     end
   end

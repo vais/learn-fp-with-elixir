@@ -2,7 +2,6 @@ defmodule DungeonCrawl.CLI.HeroChoice do
   import DungeonCrawl.CLI.BaseCommands
 
   def start do
-    clear()
     info("Start by choosing your hero:")
 
     heroes = DungeonCrawl.Heroes.all()
